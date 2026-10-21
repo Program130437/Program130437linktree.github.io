@@ -1,0 +1,253 @@
+:root {
+    /* Frutiger Aero Light Theme - Sky and Water */
+    --bg-gradient: linear-gradient(135deg, #74b9ff 0%, #55efc4 50%, #00cec9 100%);
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.9);
+    --text-main: #003366;
+    --text-sub: #00509e;
+    
+    /* Glossy Button Variables */
+    --btn-border: rgba(255, 255, 255, 0.8);
+    --btn-text: #00509e;
+    --btn-shadow: 0 4px 6px rgba(0, 100, 200, 0.15), inset 0 2px 2px rgba(255, 255, 255, 1);
+    --btn-hover-shadow: 0 0 15px rgba(255, 255, 255, 0.8), inset 0 2px 2px rgba(255, 255, 255, 1);
+    --shadow: 0 15px 35px rgba(0, 50, 100, 0.2);
+}
+
+body.dark-mode {
+    /* Frutiger Aero Dark Theme - Aurora and Night Sky */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #064e3b 100%);
+    --glass-bg: rgba(16, 25, 45, 0.5);
+    --glass-border: rgba(100, 150, 255, 0.4);
+    --text-main: #e0f2fe;
+    --text-sub: #bae6fd;
+    
+    --btn-border: rgba(255, 255, 255, 0.3);
+    --btn-text: #e0f2fe;
+    --btn-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    --btn-hover-shadow: 0 0 15px rgba(100, 180, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg-gradient);
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.4) 0%, transparent 50%), var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* --- Aero Glass Effect for the Card --- */
+.card-container {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 320px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        var(--shadow),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2), 
+        inset 0 20px 20px rgba(255, 255, 255, 0.3); 
+    transition: all 0.3s ease;
+}
+
+.profile {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --- Glossy Aqua Buttons --- */
+.link-b {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.3) 49%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        rgba(255, 255, 255, 0.15) 100%);
+    color: var(--btn-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--btn-border);
+    border-radius: 25px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: var(--btn-shadow);
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .link-b {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.05) 49%, 
+        rgba(0, 0, 0, 0.1) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+}
+
+.link-b:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--btn-hover-shadow);
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.5) 49%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.3) 100%);
+}
+
+body.dark-mode .link-b:hover {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.3) 0%, 
+        rgba(255, 255, 255, 0.1) 49%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        rgba(255, 255, 255, 0.2) 100%);
+}
+
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow), inset 0 2px 2px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), inset 0 2px 2px rgba(255, 255, 255, 1);
+}
+
+/* --- Ocean Background Elements --- */
+.ocean-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.4);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+.fish {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: swim linear infinite;
+    filter: drop-shadow(0 4px 6px rgba(0, 50, 100, 0.3));
+}
+
+.fish.reverse {
+    animation: swimReverse linear infinite;
+}
+
+@keyframes swim {
+    0% { left: -10%; transform: translateY(0px) rotate(-5deg); }
+    25% { transform: translateY(-15px) rotate(5deg); }
+    50% { transform: translateY(0px) rotate(-5deg); }
+    75% { transform: translateY(15px) rotate(5deg); }
+    100% { left: 110%; transform: translateY(0px) rotate(-5deg); }
+}
+
+@keyframes swimReverse {
+    0% { right: -10%; transform: scaleX(-1) translateY(0px) rotate(-5deg); }
+    25% { transform: scaleX(-1) translateY(-15px) rotate(5deg); }
+    50% { transform: scaleX(-1) translateY(0px) rotate(-5deg); }
+    75% { transform: scaleX(-1) translateY(15px) rotate(5deg); }
+    100% { right: 110%; transform: scaleX(-1) translateY(0px) rotate(-5deg); }
+}
+
+.seaweed {
+    position: absolute;
+    bottom: -15px;
+    font-size: 5rem;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3)) saturate(1.5);
+    transform-origin: bottom center;
+    animation: sway 4s ease-in-out infinite alternate;
+}
+
+.seaweed-1 { left: 5%; font-size: 6rem; animation-duration: 4s; }
+.seaweed-2 { left: 20%; font-size: 4rem; animation-duration: 5s; }
+.seaweed-3 { right: 25%; font-size: 5rem; animation-duration: 4.5s; }
+.seaweed-4 { right: 5%; font-size: 7rem; animation-duration: 5.5s; }
+
+@keyframes sway {
+    0% { transform: rotate(-12deg); }
+    100% { transform: rotate(12deg); }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+    
+    .card-container {
+        max-width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        min-height: 100vh;
+        padding: 4rem 1.5rem;
+    }
+}
